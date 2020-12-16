@@ -3,6 +3,7 @@ import random
 
 intial_input = input("Enter the operation you want to do (add, subtract, multiply, divide, exponentation, trigonometry): ")
 number_of_numbers = -1
+subtractNums = -1
 if intial_input.lower() == 'add':
     while number_of_numbers < 2:
         number_of_numbers = int(input("How many numbers would you like to add together? "))
@@ -12,5 +13,15 @@ if intial_input.lower() == 'add':
         placeNum = int(input("Enter the number you want to add to this list (This is number " + str(i + 1) + "): "))
         sum += placeNum
     print("The sum of your number(s) is " + str(sum))
-elif intial_input.lower == 'subtract':
-    subtractNums = int(input("How many number would you like to subtract? "))
+if intial_input.lower() == 'subtract':
+    while subtractNums < 2:
+        subtractNums = int(input("How many number(s) would you like to subtract? "))
+    differnce = 0
+    difCalc = 0
+    placeDif = int(input("Enter the number you want to subtract " + str(subtractNums - 1) + " number(s) from: "))
+
+    for i in range(subtractNums - 1):
+        placeDif2 = int(input("Enter the number(s) you want to subtract from " + str(placeDif) + ": "))
+        difCalc += placeDif2
+    differnce = placeDif - difCalc    
+    print("The final difference is " + str(differnce) + ".")
