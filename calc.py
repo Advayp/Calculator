@@ -33,7 +33,7 @@ if (initial_input.lower()).strip() == 'add':
     # This while loop make sures the user types in a valid input
     while addNums < 2:
         # This line prompts the user for input
-        addNums = float(input("How many numbers would you like to add together? "))
+        addNums = int(input("How many numbers would you like to add together? "))
 
     # This line intializes a variable called sum and sets it to 0
     sum = 0
@@ -52,7 +52,7 @@ if (initial_input.lower()).strip() == 'add':
 
 # Checks if user typed in 'subtract'
 # Uses same .lower() and .strip() functions
-if (initial_input.lower()).strip() == 'subtract':
+elif (initial_input.lower()).strip() == 'subtract':
 
     #{
     # The lines of code below make sure that the
@@ -60,7 +60,7 @@ if (initial_input.lower()).strip() == 'subtract':
     # }
     while subtractNums < 2:
         # This line of code prompts the user for input
-        subtractNums = float(input("How many number(s) would you like to subtract? "))
+        subtractNums = int(input("How many number(s) would you like to subtract? "))
     
     # Intializes a variable called 'difference' and sets it to 0
     differnce = 0
@@ -90,44 +90,109 @@ if (initial_input.lower()).strip() == 'subtract':
     print("The final difference is " + str(differnce) + ".")
 
 
-if (initial_input.lower()).strip() == 'multiply':
+elif (initial_input.lower()).strip() == 'multiply':
     while multiNums < 2:
-        multiNums = float(input("How many numbers would you like to multiply together? "))
+        multiNums = int(input("How many numbers would you like to multiply together? "))
+
     firstMultnum = float(input("Enter the number you want to multiply " + str(multiNums) + " number(s) by: "))
+
     product = 1
 
     for i in range(multiNums - 1):
+
         multiBy = float(input("Enter the number(s) you want to multiply " + str(firstMultnum) + " by: "))
+
         product *= multiBy
+    
     print("The product is " + str(product) + '.')
 
 
-if (initial_input.lower()).strip() == 'divide':
+elif (initial_input.lower()).strip() == 'divide':
     while divideNums < 2:
-        divideNums = float(input("How many numbers do you want to divide? "))
+        divideNums = int(input("How many numbers do you want to divide? "))
+
     quotient = float(input("Enter the dividend: "))
 
     for i in range(divideNums - 1):
+
         divisor = float(input("Enter divisor #" + str(i + 1) + ": "))
+
         quotient /= divisor
+
     print('The quotient is ' + str(quotient) + ".")
 
 
-if (initial_input.lower()).strip() == 'exponent':
+elif (initial_input.lower()).strip() == 'exponent':
+
     base = float(input("Enter the base: "))
+
     exponent = float(input("Enter the exponent: "))
+
     finalExpo = base ** exponent
+
     print("The answer is " + str(finalExpo) + '.')
 
-if (initial_input.lower()).strip() == 'trig':
+elif (initial_input.lower()).strip() == 'trig':
     trigPrompt = input("Enter the trig function you want to use (sin, cos, tan, arcsin, arccos, arctan, sinh, cosh, tanh, arcsinh, arccosh, arctanh): ")
+
     acceptedTrig = ['sin', 'cos', 'tan']
+
+    acceptedTrigh = ['sinh', 'cosh', 'tanh']
+
+    acceptedArcTrig = ['arcsin', 'arccos', 'arctan']
+
+    acceptedArcTrigHyp = ['arcsinh', 'arccosh', 'arctanh']
+    
     if (trigPrompt.lower()).strip() in acceptedTrig:
-        angle1 = float(input("Enter the angle you want to find the sin, cos, or tan (degrees): "))
+        angle1 = float(input("Enter the angle you want to find the sin, cos, or tan of (degrees): "))
         angleInfo = math.radians(angle1)
 
-        print("The sine of " + str(round(angle1)) + " = " + str(round(math.sin(angleInfo), 3)) + '.')
-        print("The cosine of " + str(round(angle1)) + " = " + str(round(math.cos(angleInfo), 3)) + '.')
-        print("The tangent of " + str(round(angle1)) + " = " + str(round(math.tan(angleInfo), 3)) + '.')
+        print("The sine of " + str(round(angle1)) + " ~= " + str(round(
+            math.sin(angleInfo), 3)) + '.')
 
+        print("The cosine of " + str(round(angle1)) + " ~= " + str(round(
+            math.cos(angleInfo), 3)) + '.')
 
+        print("The tangent of " + str(round(angle1)) + " ~= " + str(round(
+            math.tan(angleInfo), 3)) + '.')
+
+    elif (trigPrompt.lower()).strip() in acceptedTrigh:
+        angleHyp = float(input('Enter the angle you want to find the sinh, cosh, or tanh of (degrees): '))
+        angleHyp_info = math.radians(angleHyp)
+
+        print('The sinh of ' + str(round(angleHyp)) + ' ~= ' + str(round(
+            math.sinh(angleHyp_info), 3
+        )) + '.')
+
+        print('The cosh of ' + str(round(angleHyp)) + ' ~= ' + str(round(
+            math.cosh(angleHyp_info), 3
+        )) + '.')
+
+        print('The tanh of ' + str(round(angleHyp)) + ' ~= ' + str(round(
+            math.tanh(angleHyp_info), 3
+        )) + '.')
+    
+    elif (trigPrompt.lower()).strip() in acceptedArcTrig:
+        ratioNorm = float(input("Enter the ratio you want to get the arcsin, arcos, or arctan of: "))
+
+        arctanNorm = 1
+
+        if ratioNorm >= -1 and ratioNorm <= 1:
+
+            arcsineNorm = math.degrees(math.asin(ratioNorm))
+            arccosNorm = math.degrees(math.acos(ratioNorm))
+            arctanNorm = math.degrees(math.atan(ratioNorm))
+
+            print('The arcsine of ' + str(ratioNorm) + ' is ' + str(arcsineNorm) + ' degrees')
+
+            print('The arccosine of ' + str(ratioNorm) + ' is ' + str(arccosNorm) + ' degrees.')
+
+            print('The arctan of ' + str(ratioNorm) + ' is ' + str(arctanNorm) + ' degrees.')
+        else:
+            arctanNorm = math.degrees(math.atan(ratioNorm))
+    
+
+        
+            
+
+        
