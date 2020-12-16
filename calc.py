@@ -7,7 +7,7 @@ import math
 initial_input = 'asdfasdf'
 
 # Initializes a list which has the acceptable functions of this calculator
-acceptedValues = ['add', 'subtract', 'multiply', 'divide'] 
+acceptedValues = ['add', 'subtract', 'multiply', 'divide', 'trig', 'exponent'] 
 
 # This while loop runs if the initial_input is not in acceptedValues.
 # Explanation of.lower() and .strip() functions on the first if statement in this calculator.
@@ -24,7 +24,6 @@ subtractNums = -1
 multiNums = -1
 
 divideNums = -1
-
 # Checks if the user typed in add
 # The.lower() function converts all characters in the string to lowercase
 # The .strip() function removes the spaces from the end and beginning from the string.
@@ -34,7 +33,7 @@ if (initial_input.lower()).strip() == 'add':
     # This while loop make sures the user types in a valid input
     while addNums < 2:
         # This line prompts the user for input
-        addNums = int(input("How many numbers would you like to add together? "))
+        addNums = float(input("How many numbers would you like to add together? "))
 
     # This line intializes a variable called sum and sets it to 0
     sum = 0
@@ -43,7 +42,7 @@ if (initial_input.lower()).strip() == 'add':
     for i in range(addNums):
 
         #This line takes an input from the user
-        placeNum = int(input("Enter the number you want to add to this list (This is number " + str(i + 1) + "): "))
+        placeNum = float(input("Enter the number you want to add to this list (This is number " + str(i + 1) + "): "))
 
         # This line adds the input from the user to the variable sum
         sum += placeNum
@@ -61,7 +60,7 @@ if (initial_input.lower()).strip() == 'subtract':
     # }
     while subtractNums < 2:
         # This line of code prompts the user for input
-        subtractNums = int(input("How many number(s) would you like to subtract? "))
+        subtractNums = float(input("How many number(s) would you like to subtract? "))
     
     # Intializes a variable called 'difference' and sets it to 0
     differnce = 0
@@ -70,13 +69,13 @@ if (initial_input.lower()).strip() == 'subtract':
     difCalc = 0
 
     # Prompts the user for input.
-    placeDif = int(input("Enter the number you want to subtract " + str(subtractNums - 1) + " number(s) from: "))
+    placeDif = float(input("Enter the number you want to subtract " + str(subtractNums - 1) + " number(s) from: "))
 
     # This for-loop runs 'subtractNums - 1' number of times.
     for i in range(subtractNums - 1):
         
         # Prompts the user for an integer that they want to subtract from 'placeDif'
-        placeDif2 = int(input("Enter the number(s) you want to subtract from " + str(placeDif) + ": "))
+        placeDif2 = float(input("Enter the number(s) you want to subtract from " + str(placeDif) + ": "))
 
         # Adds the number the user entered for the previous prompt to a variable called 'difCalc'
         difCalc += placeDif2
@@ -93,23 +92,42 @@ if (initial_input.lower()).strip() == 'subtract':
 
 if (initial_input.lower()).strip() == 'multiply':
     while multiNums < 2:
-        multiNums = int(input("How many numbers would you like to multiply together? "))
-    firstMultnum = int(input("Enter the number you want to multiply " + str(multiNums) + " number(s) by: "))
+        multiNums = float(input("How many numbers would you like to multiply together? "))
+    firstMultnum = float(input("Enter the number you want to multiply " + str(multiNums) + " number(s) by: "))
     product = 1
 
     for i in range(multiNums - 1):
-        multiBy = int(input("Enter the number(s) you want to multiply " + str(firstMultnum) + " by: "))
+        multiBy = float(input("Enter the number(s) you want to multiply " + str(firstMultnum) + " by: "))
         product *= multiBy
     print("The product is " + str(product) + '.')
 
 
 if (initial_input.lower()).strip() == 'divide':
     while divideNums < 2:
-        divideNums = int(input("How many numbers do you want to divide? "))
-    quotient = int(input("Enter the dividend: "))
+        divideNums = float(input("How many numbers do you want to divide? "))
+    quotient = float(input("Enter the dividend: "))
 
     for i in range(divideNums - 1):
-        divisor = int(input("Enter divisor #" + str(i + 1) + ": "))
+        divisor = float(input("Enter divisor #" + str(i + 1) + ": "))
         quotient /= divisor
     print('The quotient is ' + str(quotient) + ".")
-    
+
+
+if (initial_input.lower()).strip() == 'exponent':
+    base = float(input("Enter the base: "))
+    exponent = float(input("Enter the exponent: "))
+    finalExpo = base ** exponent
+    print("The answer is " + str(finalExpo) + '.')
+
+if (initial_input.lower()).strip() == 'trig':
+    trigPrompt = input("Enter the trig function you want to use (sin, cos, tan, arcsin, arccos, arctan, sinh, cosh, tanh, arcsinh, arccosh, arctanh): ")
+    acceptedTrig = ['sin', 'cos', 'tan']
+    if (trigPrompt.lower()).strip() in acceptedTrig:
+        angle1 = float(input("Enter the angle you want to find the sin, cos, or tan (degrees): "))
+        angleInfo = math.radians(angle1)
+
+        print("The sine of " + str(round(angle1)) + " = " + str(round(math.sin(angleInfo), 3)) + '.')
+        print("The cosine of " + str(round(angle1)) + " = " + str(round(math.cos(angleInfo), 3)) + '.')
+        print("The tangent of " + str(round(angle1)) + " = " + str(round(math.tan(angleInfo), 3)) + '.')
+
+
