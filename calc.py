@@ -2,21 +2,27 @@
 # relating to trigonometry, pi, and calculus
 import math
 
-# Assigns initial input to a random value so that the while loop on line 9
-# can run
+#! Important info: the "*" tag on a comment summarizes the job of the line below it
+#! The "?" tag answers some questions people might have about the code
+
+
+# *Assigns initial input to a random value so that a while loop
+# *can run
 initial_input = 'asdfasdf'
 
-# Initializes a list which has the acceptable functions of this calculator
-acceptedValues = ['add', 'subtract', 'multiply', 'divide', 'trig', 'exponent'] 
+# *Initializes a list which has the acceptable functions of this calculator
+acceptedValues = ['add', 'subtract', 'multiply',
+                  'divide', 'trig', 'exponent', 'log']
 
-# This while loop runs if the initial_input is not in acceptedValues.
-# Explanation of.lower() and .strip() functions on the first if statement in this calculator.
-while  not (initial_input.lower()).strip() in acceptedValues:
+# *This while loop runs if the initial_input is not in acceptedValues.
+# ?Explanation of.lower() and .strip() functions on the first if statement in this calculator.
+while not (initial_input.lower()).strip() in acceptedValues:
 
-    # Prompts the user for the function they want to enter
-    initial_input = input("Enter the operation you want to do (add, subtract, multiply, divide, exponent, trig): ")
+    # ?Prompts the user for the function they want to enter
+    initial_input = input(
+        "Enter the operation you want to do (add, subtract, multiply, divide, exponent, trig, log): ")
 
-# Initializes 4 variables to a random value so that a while loop can run
+# ?Initializes 4 variables to a random value so that a while loop can run
 addNums = -1
 
 subtractNums = -1
@@ -24,16 +30,17 @@ subtractNums = -1
 multiNums = -1
 
 divideNums = -1
-# Checks if the user typed in add
-# The.lower() function converts all characters in the string to lowercase
-# The .strip() function removes the spaces from the end and beginning from the string.
-# Eg: " HELLO " --> "hello". This transformation happens after the .lower() and .strip() functions
+# *Checks if the user typed in add
+# ?The.lower() function converts all characters in the string to lowercase
+# ?The .strip() function removes the spaces from the end and beginning from the string.
+# ?Eg: " HELLO " --> "hello". This transformation happens after the .lower() and .strip() functions
 if (initial_input.lower()).strip() == 'add':
 
     # This while loop make sures the user types in a valid input
     while addNums < 2:
         # This line prompts the user for input
-        addNums = int(input("How many numbers would you like to add together? "))
+        addNums = int(
+            input("How many numbers would you like to add together? "))
 
     # This line intializes a variable called sum and sets it to 0
     sum = 0
@@ -41,69 +48,76 @@ if (initial_input.lower()).strip() == 'add':
     # This for-loop runs a certain number of times (Specifically: addNums number of times. See line 17)
     for i in range(addNums):
 
-        #This line takes an input from the user
-        placeNum = float(input("Enter the number you want to add to this list (This is number " + str(i + 1) + "): "))
+        # This line takes an input from the user
+        placeNum = float(input(
+            "Enter the number you want to add to this list (This is number " + str(i + 1) + "): "))
 
         # This line adds the input from the user to the variable sum
         sum += placeNum
-    
-    #This line outputs the sum of the numbers the user typed in.
+
+    # This line outputs the sum of the numbers the user typed in.
     print("The sum of your number(s) is " + str(sum))
 
 # Checks if user typed in 'subtract'
 # Uses same .lower() and .strip() functions
 elif (initial_input.lower()).strip() == 'subtract':
 
-    #{
-    # The lines of code below make sure that the
-    # number the user types in is valid for subtraction
+    # {
+    # *The lines of code below make sure that the
+    # *number the user types in is valid for subtraction
     # }
     while subtractNums < 2:
-        # This line of code prompts the user for input
-        subtractNums = int(input("How many number(s) would you like to subtract? "))
-    
-    # Intializes a variable called 'difference' and sets it to 0
+        # *This line of code prompts the user for input
+        subtractNums = int(
+            input("How many number(s) would you like to subtract? "))
+
+    # *Intializes a variable called 'difference' and sets it to 0
     differnce = 0
 
-    # Intializes a variable called 'difCalc' and sets it to 0
+    # *Intializes a variable called 'difCalc' and sets it to 0
     difCalc = 0
 
-    # Prompts the user for input.
-    placeDif = float(input("Enter the number you want to subtract " + str(subtractNums - 1) + " number(s) from: "))
+    # *Prompts the user for input.
+    placeDif = float(input("Enter the number you want to subtract " +
+                           str(subtractNums - 1) + " number(s) from: "))
 
-    # This for-loop runs 'subtractNums - 1' number of times.
+    # *This for-loop runs 'subtractNums - 1' number of times.
     for i in range(subtractNums - 1):
-        
-        # Prompts the user for an integer that they want to subtract from 'placeDif'
-        placeDif2 = float(input("Enter the number(s) you want to subtract from " + str(placeDif) + ": "))
 
-        # Adds the number the user entered for the previous prompt to a variable called 'difCalc'
+        # *Prompts the user for an integer that they want to subtract from 'placeDif'
+        placeDif2 = float(
+            input("Enter the number(s) you want to subtract from " + str(placeDif) + ": "))
+
+        # *Adds the number the user entered for the previous prompt to a variable called 'difCalc'
         difCalc += placeDif2
-    
-    #{
-    #  Takes the first number the user entered(placeDif) and subtracts the sum of
-    #  the numbers the user entered in the for-loop (difCalc)
-    # } 
-    differnce = placeDif - difCalc   
 
-    # Output 
+    # {
+    #  *Takes the first number the user entered(placeDif) and subtracts the sum of
+    #  *the numbers the user entered in the for-loop (difCalc)
+    # }
+    differnce = placeDif - difCalc
+
+    # *Output
     print("The final difference is " + str(differnce) + ".")
 
 
 elif (initial_input.lower()).strip() == 'multiply':
     while multiNums < 2:
-        multiNums = int(input("How many numbers would you like to multiply together? "))
+        multiNums = int(
+            input("How many numbers would you like to multiply together? "))
 
-    firstMultnum = float(input("Enter the number you want to multiply " + str(multiNums) + " number(s) by: "))
+    firstMultnum = float(input(
+        "Enter the number you want to multiply " + str(multiNums) + " number(s) by: "))
 
     product = 1
 
     for i in range(multiNums - 1):
 
-        multiBy = float(input("Enter the number(s) you want to multiply " + str(firstMultnum) + " by: "))
+        multiBy = float(
+            input("Enter the number(s) you want to multiply " + str(firstMultnum) + " by: "))
 
         product *= multiBy
-    
+
     print("The product is " + str(product) + '.')
 
 
@@ -133,7 +147,8 @@ elif (initial_input.lower()).strip() == 'exponent':
     print("The answer is " + str(finalExpo) + '.')
 
 elif (initial_input.lower()).strip() == 'trig':
-    trigPrompt = input("Enter the trig function you want to use (sin, cos, tan, arcsin, arccos, arctan, sinh, cosh, tanh, arcsinh, arccosh, arctanh): ")
+    trigPrompt = input(
+        "Enter the trig function you want to use (sin, cos, tan, arcsin, arccos, arctan, sinh, cosh, tanh, arcsinh, arccosh, arctanh): ")
 
     acceptedTrig = ['sin', 'cos', 'tan']
 
@@ -142,9 +157,10 @@ elif (initial_input.lower()).strip() == 'trig':
     acceptedArcTrig = ['arcsin', 'arccos', 'arctan']
 
     acceptedArcTrigHyp = ['arcsinh', 'arccosh', 'arctanh']
-    
+
     if (trigPrompt.lower()).strip() in acceptedTrig:
-        angle1 = float(input("Enter the angle you want to find the sin, cos, or tan of (degrees): "))
+        angle1 = float(
+            input("Enter the angle you want to find the sin, cos, or tan of (degrees): "))
         angleInfo = math.radians(angle1)
 
         print("The sine of " + str(round(angle1)) + " ~= " + str(round(
@@ -157,7 +173,9 @@ elif (initial_input.lower()).strip() == 'trig':
             math.tan(angleInfo), 3)) + '.')
 
     elif (trigPrompt.lower()).strip() in acceptedTrigh:
-        angleHyp = float(input('Enter the angle you want to find the sinh, cosh, or tanh of (degrees): '))
+        angleHyp = float(
+            input('Enter the angle you want to find the sinh, cosh, or tanh of (degrees): '))
+
         angleHyp_info = math.radians(angleHyp)
 
         print('The sinh of ' + str(round(angleHyp)) + ' ~= ' + str(round(
@@ -171,28 +189,55 @@ elif (initial_input.lower()).strip() == 'trig':
         print('The tanh of ' + str(round(angleHyp)) + ' ~= ' + str(round(
             math.tanh(angleHyp_info), 3
         )) + '.')
-    
+
     elif (trigPrompt.lower()).strip() in acceptedArcTrig:
-        ratioNorm = float(input("Enter the ratio you want to get the arcsin, arcos, or arctan of: "))
+        ratioNorm = float(
+            input("Enter the ratio (In decimal form) you want to get the arcsin, arccos, or arctan of: "))
 
         arctanNorm = 1
 
         if ratioNorm >= -1 and ratioNorm <= 1:
 
             arcsineNorm = math.degrees(math.asin(ratioNorm))
+
             arccosNorm = math.degrees(math.acos(ratioNorm))
+
             arctanNorm = math.degrees(math.atan(ratioNorm))
 
-            print('The arcsine of ' + str(ratioNorm) + ' is ' + str(arcsineNorm) + ' degrees')
+            print('The arcsine of ' + str(ratioNorm) +
+                  ' is ' + str(arcsineNorm) + ' degrees')
 
-            print('The arccosine of ' + str(ratioNorm) + ' is ' + str(arccosNorm) + ' degrees.')
+            print('The arccosine of ' + str(ratioNorm) +
+                  ' is ' + str(arccosNorm) + ' degrees.')
 
-            print('The arctan of ' + str(ratioNorm) + ' is ' + str(arctanNorm) + ' degrees.')
+            print('The arctan of ' + str(ratioNorm) +
+                  ' is ' + str(arctanNorm) + ' degrees.')
         else:
             arctanNorm = math.degrees(math.atan(ratioNorm))
-    
+    elif (trigPrompt.lower()).strip() in acceptedArcTrigHyp:
 
-        
-            
+        ratioHyp = float(input(
+            "Enter the ratio (In decimal form) that you want to get the arcsinh, arccosh, or arctanh of: "))
 
-        
+        if ratioHyp >= 1:
+
+            arccoshHyp = math.degrees(math.acosh(ratioHyp))
+
+            arcsinhHyp = math.degrees(math.asinh(ratioHyp))
+
+            arctanhHyp = math.degrees(math.at.anh(ratioHyp))
+
+            print("The arcsine of " + str(ratioHyp) +
+                  " in degrees is " + str(arcsinhHyp) + ".")
+
+            print("The arccosh of " + str(ratioHyp) +
+                  " in degrees is" + str(arccoshHyp) + ".")
+
+            print("The arctan of " + str(ratioHyp) +
+                  "in degrees is " + str(arctanhHyp) + ".")
+elif (initial_input.lower()).strip() == 'log':
+    # TODO, Write input function for log here
+
+    # TODO, Write Calculation function here
+
+    # TODO Add Output here
