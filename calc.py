@@ -258,7 +258,7 @@ elif (initial_input.lower()).strip() == 'complex':
 
     while not complexInput in acceptedComplex:
         complexInput = input(
-            "Enter which opeartion you want to do (add, subtract, multiply, divide, exponent, trig): ")
+            "COMPLEX NUMBERS: Enter which opeartion you want to do (add, subtract, multiply, divide, exponent, trig): ")
 
     if (complexInput.lower()).strip() == 'add':
         numsComplex_add = 1
@@ -300,3 +300,20 @@ elif (initial_input.lower()).strip() == 'complex':
             complexNumSub = complex(realPartSub, imagPartSub)
             complexDif = placeDifcomp - complexNumSub
         print("The final difference is " + str(complexDif) + ".")
+    elif (complexInput.lower()).strip() == 'multiply':
+
+        product = 1
+        multComplexnums = -1
+
+        while multComplexnums < 2:
+            multComplexnums = int(
+                input("How many complex numbers do you want to multiply? "))
+
+        for i in range(multComplexnums):
+            mult_real = int(
+                input("Enter the real part of complex number #" + str(i + 1) + ": "))
+            mult_imaginary = int(
+                input("Enter the imaginary part of complex number #" + str(i + 1) + ": "))
+            product *= complex(mult_real, mult_imaginary)
+
+        print("Product: " + str(product) + ".")
