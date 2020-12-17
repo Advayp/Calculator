@@ -364,3 +364,4 @@ elif (initial_input.lower()).strip() == 'complex':
         print("The answer is: " + str(finalExpoComplex) + ".")
     elif (complexInput.lower()).strip() == 'trig':
         # TODO Write Trig functions here.
+        print("", end="")
