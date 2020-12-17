@@ -2,6 +2,9 @@
 # relating to trigonometry, pi, and calculus
 import math
 
+# Imports a module called cmath which has multiple functions
+# relating to complex numbers
+import cmath
 #! Important info: the "*" tag on a comment summarizes the job of the line below it
 #! The "?" tag answers some questions people might have about the code
 
@@ -342,3 +345,22 @@ elif (initial_input.lower()).strip() == 'complex':
             firstCompdivNum /= placeComp
 
         print("Quotient: " + str(firstCompdivNum) + ".")
+
+    elif (complexInput.lower()).strip() == 'exponent':
+        complexExp_real = float(input("Enter the real part of the exponent: "))
+        complexExp_imaginary = float(
+            input("Enter the imaginary part of the exponenet: "))
+
+        complexExp = complex(complexExp_real, complexExp_imaginary)
+        complexBase_real = float(
+            input("Enter the real part of the base of the exponent: "))
+        complexBase_imaginary = float(
+            input("Enter the imaginary of the base of the exponent: "))
+
+        complexBase = complex(complexBase_real, complexBase_imaginary)
+
+        finalExpoComplex = complexBase ** complexExp
+
+        print("The answer is: " + str(finalExpoComplex) + ".")
+    elif (complexInput.lower()).strip() == 'trig':
+        # TODO Write Trig functions here.
