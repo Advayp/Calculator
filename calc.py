@@ -317,3 +317,28 @@ elif (initial_input.lower()).strip() == 'complex':
             product *= complex(mult_real, mult_imaginary)
 
         print("Product: " + str(product) + ".")
+    elif (complexInput.lower()).strip() == 'divide':
+
+        divideCompnums = -1
+        while divideCompnums < 2:
+            divideCompnums = int(
+                input("How many numbers would you like to divide? "))
+
+        firstCompdivNum_real = int(input(
+            "Enter the real part of the number you would like to divide  " + str(divideCompnums) + "complex numbers by: "))
+        firstCompdivNum_imaginary = int(input(
+            "Enter the imaginary part of the number you would like to divide " + str(divideCompnums) + " complex numbers by: "))
+        firstCompdivNum = complex(
+            firstCompdivNum_real, firstCompdivNum_imaginary)
+
+        for i in range(divideCompnums):
+            placeComp_real = int(
+                input("Enter the real part of the divisor #" + str(i + 1) + ": "))
+            placeComp_imaginary = int(
+                input("Enter the imaginary part of the divisor #" + str(i + 1) + ": "))
+
+            placeComp = complex(placeComp_real, placeComp_imaginary)
+
+            firstCompdivNum /= placeComp
+
+        print("Quotient: " + str(firstCompdivNum) + ".")
