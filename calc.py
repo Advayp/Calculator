@@ -364,4 +364,39 @@ elif (initial_input.lower()).strip() == 'complex':
         print("The answer is: " + str(finalExpoComplex) + ".")
     elif (complexInput.lower()).strip() == 'trig':
         # TODO Write Trig functions here.
-        print("", end="")
+
+        acceptedComplexTrig = ['sin', 'cos', 'tan']
+        acceptedComplexArcTrig = ['asin', 'acos', 'atan']
+
+        complexTriginput = int(input(
+            'Enter the trig function that you want to do with complex numbers (sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, atanh, acosh): '))
+
+        if complexTriginput in acceptedComplexTrig:
+            complexTrig_real = int(input(
+                "Enter the real part of the complex number you want to find the sine, cosine, or tangent of: "))
+            complexTrig_imaginary = int(input(
+                "Enter the imaginary part of the complex number you want to find the sine, cosine, or tangent of: "))
+            complexTrig = complex(complexTrig_real, complexTrig_imaginary)
+
+            print("The sine of " + str(complexTrig) +
+                  " is " + str(cmath.sin(complexTrig) + "."))
+            print("The cosine of " + str(complexTrig) +
+                  " is " + str(cmath.cos(complexTrig) + "."))
+            print("The tangent of " + str(complexTrig) +
+                  " is " + str(cmath.tan(complexTrig) + "."))
+        elif (complexTriginput.lower()).strip() in acceptedComplexArcTrig:
+            complexArcTrig_real = int(input(
+                "Enter the real part of the complex number you want to find the arcsine, arccosine, or arctangent of: "))
+            complexArcTrig_imaginary = int(input(
+                "Enter the imaginary part of the complex number you want to find the arcsine, arccosine, or arctangent of: "))
+            complexArcTrig = complex(
+                complexArcTrig_real, complexArcTrig_imaginary)
+
+            print("The arcsine of " + str(complexArcTrig) +
+                  " is " + str(cmath.asin(complexArcTrig) + "."))
+
+            print("The arccosine of " + str(complexArcTrig) +
+                  " is " + str(cmath.acos(complexArcTrig) + "."))
+
+            print("The arctangent of " + str(complexArcTrig) +
+                  " is " + str(cmath.atan(complexArcTrig) + "."))
