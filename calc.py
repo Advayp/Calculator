@@ -12,7 +12,7 @@ initial_input = 'asdfasdf'
 
 # *Initializes a list which has the acceptable functions of this calculator
 acceptedValues = ['add', 'subtract', 'multiply',
-                  'divide', 'trig', 'exponent', 'log']
+                  'divide', 'trig', 'exponent', 'log', 'complex']
 
 # *This while loop runs if the initial_input is not in acceptedValues.
 # ?Explanation of.lower() and .strip() functions on the first if statement in this calculator.
@@ -20,7 +20,7 @@ while not (initial_input.lower()).strip() in acceptedValues:
 
     # ?Prompts the user for the function they want to enter
     initial_input = input(
-        "Enter the operation you want to do (add, subtract, multiply, divide, exponent, trig, log): ")
+        "Enter the operation you want to do (add, subtract, multiply, divide, exponent, trig, log, complex): ")
 
 # ?Initializes 4 variables to a random value so that a while loop can run
 addNums = -1
@@ -236,8 +236,67 @@ elif (initial_input.lower()).strip() == 'trig':
             print("The arctan of " + str(ratioHyp) +
                   "in degrees is " + str(arctanhHyp) + ".")
 elif (initial_input.lower()).strip() == 'log':
-    # TODO, Write input function for log here
 
-    # TODO, Write Calculation function here
+    logId = float(input("Enter the number you want to take the log of: "))
 
-    # TODO Add Output here
+    baseCheck = input("Do you want your base to be e? (y or n) ")
+
+    if (baseCheck.lower()).strip() == 'y':
+
+        print("The answer is: " + str(math.log(logId)))
+
+    elif (baseCheck.lower()).strip() == 'n':
+
+        base = float(input("Enter the base of your logarithm: "))
+
+        print("The answer is " + str(math.log(logId, base)))
+elif (initial_input.lower()).strip() == 'complex':
+
+    complexInput = 'placeholder'
+    acceptedComplex = ['add', 'subtract',
+                       'multiply', 'divide', 'exponent', 'trig']
+
+    while not complexInput in acceptedComplex:
+        complexInput = input(
+            "Enter which opeartion you want to do (add, subtract, multiply, divide, exponent, trig): ")
+
+    if (complexInput.lower()).strip() == 'add':
+        numsComplex_add = 1
+        complexSum = 0
+
+        while numsComplex_add < 2:
+            numsComplex_add = int(
+                input("Enter the number of complex numbers you want to add: "))
+
+        for i in range(numsComplex_add):
+            real_part = int(
+                input("Enter the real part of complex number #" + str(i + 1) + ': '))
+            imaginary_part = int(
+                input("Enter the imaginary part of complex number #" + str(i + 1) + ': '))
+            z = complex(real_part, imaginary_part)
+            complexSum += z
+        print("The sum of the complex number is (j = sqrt(-1)) " +
+              str(complexSum) + '.')
+    elif (complexInput.lower()).strip() == 'subtract':
+        complexSub_nums = -1
+
+        complexDif = 0
+        compDifCalc = 0
+
+        while complexSub_nums < 2:
+            complexSub_nums = int(
+                input("How many complex numbers would like to subtract? "))
+
+        placeDifcomp_r = int(input("Enter the real part of the complex number you would like to subtract " +
+                                   str(complexSub_nums) + " complex numbers from: "))
+        placeDifcomp_i = int(input("Enter the imaginary part of the complex number you would like to subtrat" +
+                                   str(complexSub_nums) + " complex numbers from: "))
+        placeDifcomp = complex(placeDifcomp_r, placeDifcomp_i)
+        for i in range(complexSub_nums):
+            realPartSub = int(
+                input("Enter the real part of complex number #" + str(i + 1) + ". "))
+            imagPartSub = int(
+                input("Enter the imaginary part of complex number #" + str(i + 1) + '. '))
+            complexNumSub = complex(realPartSub, imagPartSub)
+            complexDif = placeDifcomp - complexNumSub
+        print("The final difference is " + str(complexDif) + ".")
