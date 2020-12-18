@@ -367,9 +367,11 @@ elif (initial_input.lower()).strip() == 'complex':
 
         acceptedComplexTrig = ['sin', 'cos', 'tan']
         acceptedComplexArcTrig = ['asin', 'acos', 'atan']
+        acceptedComplexHyp = ['sinh', 'cosh', 'tanh']
+        acceptedComplexArcHyp = ['asinh', 'acosh', 'atanh']
 
-        complexTriginput = int(input(
-            'Enter the trig function that you want to do with complex numbers (sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, atanh, acosh): '))
+        complexTriginput = input(
+            'Enter the trig function that you want to do with complex numbers (sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, atanh, acosh): ')
 
         if complexTriginput in acceptedComplexTrig:
             complexTrig_real = int(input(
@@ -379,11 +381,11 @@ elif (initial_input.lower()).strip() == 'complex':
             complexTrig = complex(complexTrig_real, complexTrig_imaginary)
 
             print("The sine of " + str(complexTrig) +
-                  " is " + str(cmath.sin(complexTrig) + "."))
+                  " is " + str(cmath.sin(complexTrig)) + ".")
             print("The cosine of " + str(complexTrig) +
-                  " is " + str(cmath.cos(complexTrig) + "."))
+                  " is " + str(cmath.cos(complexTrig)) + ".")
             print("The tangent of " + str(complexTrig) +
-                  " is " + str(cmath.tan(complexTrig) + "."))
+                  " is " + str(cmath.tan(complexTrig)) + ".")
         elif (complexTriginput.lower()).strip() in acceptedComplexArcTrig:
             complexArcTrig_real = int(input(
                 "Enter the real part of the complex number you want to find the arcsine, arccosine, or arctangent of: "))
@@ -393,10 +395,35 @@ elif (initial_input.lower()).strip() == 'complex':
                 complexArcTrig_real, complexArcTrig_imaginary)
 
             print("The arcsine of " + str(complexArcTrig) +
-                  " is " + str(cmath.asin(complexArcTrig) + "."))
+                  " is " + str(cmath.asin(complexArcTrig)) + ".")
 
             print("The arccosine of " + str(complexArcTrig) +
-                  " is " + str(cmath.acos(complexArcTrig) + "."))
+                  " is " + str(cmath.acos(complexArcTrig)) + ".")
 
             print("The arctangent of " + str(complexArcTrig) +
-                  " is " + str(cmath.atan(complexArcTrig) + "."))
+                  " is " + str(cmath.atan(complexArcTrig)) + ".")
+        elif (complexTriginput.lower()).strip() in acceptedComplexHyp:
+            complexHyp_real = int(input(
+                'Enter the real part of the complex number that you want to find the sinh, cosh, or tanh of:'))
+            complexHyp_imaginary = int(input(
+                'Enter the imaginary part of the complex number that you want to find the sinh, cosh, or tanh of: '))
+
+            complexHyp = complex(complexHyp_real, complexHyp_imaginary)
+
+            print('The sinh of ' + str(complexHyp) +
+                  ' is ' + str(cmath.sinh(complexHyp)) + ".")
+
+            print("The cosh of " + str(complexHyp) +
+                  " is " + str(cmath.cosh(complexHyp)) + ".")
+
+            print("The tanh of " + str(complexHyp) +
+                  " is " + str(cmath.tanh(complexHyp)) + ".")
+        elif (complexTriginput.lower()).strip() in acceptedComplexArcHyp:
+            complexArcHype_real = int(input(
+                "Enter the real part of the complex number that you want to find the arcsinh, arccosh, or arctanh of: "))
+
+            complexArcHype_imaginary = int(input(
+                "Enter the imaginary part of the complex number that you want to find the arcsinh, arcosh, or arctanh of: "))
+
+            complexArcHype = complex(
+                complexArcHype_real, complexArcHype_imaginary)
