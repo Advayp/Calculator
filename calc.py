@@ -257,11 +257,11 @@ elif (initial_input.lower()).strip() == 'complex':
 
     complexInput = 'placeholder'
     acceptedComplex = ['add', 'subtract',
-                       'multiply', 'divide', 'exponent', 'trig']
+                       'multiply', 'divide', 'exponent', 'trig', 'log']
 
     while not complexInput in acceptedComplex:
         complexInput = input(
-            "COMPLEX NUMBERS: Enter which opeartion you want to do (add, subtract, multiply, divide, exponent, trig): ")
+            "COMPLEX NUMBERS: Enter which opeartion you want to do (add, subtract, multiply, divide, exponent, trig, log): ")
 
     if (complexInput.lower()).strip() == 'add':
         numsComplex_add = 1
@@ -427,3 +427,17 @@ elif (initial_input.lower()).strip() == 'complex':
 
             complexArcHype = complex(
                 complexArcHype_real, complexArcHype_imaginary)
+    elif (complexInput.lower()).strip() == 'log':
+        complexLog_real = int(input(
+            "Enter the real part of the complex number that you want to take the logarithm of: "))
+        complexLog_imaginary = int(input(
+            "Enter the imaginary part of the complex number that you want to take the logarithm of: "))
+        complexLog = complex(complexLog_real, complexLog_imaginary)
+
+        complexBaseLog_real = int(
+            input("Enter the real part of the base of your logarithm: "))
+        complexBaseLog_imaginary = int(
+            input("Enter the imgainary part of the base of your logarithm: "))
+        complexBaseLog = complex(complexBaseLog_real, complexBaseLog_imaginary)
+
+        print("Answer: " + str(cmath.log(complexLog, complexBaseLog)))
