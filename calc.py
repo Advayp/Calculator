@@ -15,7 +15,7 @@ initial_input = 'asdfasdf'
 
 # *Initializes a list which has the acceptable functions of this calculator
 acceptedValues = ['add', 'subtract', 'multiply',
-                  'divide', 'trig', 'exponent', 'log', 'complex']
+                  'divide', 'trig', 'exponent', 'log', 'complex', 'permutation', 'combination', 'factorial']
 
 # *This while loop runs if the initial_input is not in acceptedValues.
 # ?Explanation of.lower() and .strip() functions on the first if statement in this calculator.
@@ -23,7 +23,7 @@ while not (initial_input.lower()).strip() in acceptedValues:
 
     # ?Prompts the user for the function they want to enter
     initial_input = input(
-        "Enter the operation you want to do (add, subtract, multiply, divide, exponent, trig, log, complex): ")
+        "Enter the operation you want to do (add, subtract, multiply, divide, exponent, trig, log, complex, permutation, combination, factorial): ")
 
 # ?Initializes 4 variables to a random value so that a while loop can run
 addNums = -1
@@ -441,3 +441,15 @@ elif (initial_input.lower()).strip() == 'complex':
         complexBaseLog = complex(complexBaseLog_real, complexBaseLog_imaginary)
 
         print("Answer: " + str(cmath.log(complexLog, complexBaseLog)))
+elif (initial_input.lower()).strip() == 'permutation':
+    n = int(input("Enter the number of items you want to choose k items from with order and without reputation: "))
+    k = int(input(
+        "Enter the number of items you want to choose from " + str(n) + " items: "))
+    print(f"Answer: {str(math.perm(n, k))}")
+elif (initial_input.lower()).strip() == 'combination':
+    nC = int(input("Format: nCk. Enter n: "))
+    kC = int(input("Enter k: "))
+    print(f"Answer: {str(math.comb(nC, kC))}")
+elif (initial_input.lower()).strip() == 'factorial':
+    fact = int(input('Enter the number that you want to take the factorial of: '))
+    print(f"Answer: {str(math.factorial(fact))}")
