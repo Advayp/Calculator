@@ -11,7 +11,9 @@ Functions:
     Complex:
         Same as Normal but with a complex number as input and output.
 
-Python 3 needs to be installed for this to run
+Python 3 needs to be installed for this to run.
+
+Suggestions are appreciated
 
 
 
